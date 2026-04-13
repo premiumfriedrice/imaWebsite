@@ -27,9 +27,9 @@ export default function Footer() {
         </span>
         <ul className="flex list-none" style={{ gap: "1.5rem" }}>
           {[
-            { label: "Privacy Policy", href: "/privacy-policy" },
-            { label: "Terms", href: "#" },
-            { label: "Contact", href: "mailto:sudofriedrice@gmail.com" },
+            { label: "Support", href: "/support" },
+            { label: "Privacy", href: "/privacy-policy" },
+            { label: "Terms", href: "/terms" },
           ].map((link) => (
             <li key={link.label}>
               <a
