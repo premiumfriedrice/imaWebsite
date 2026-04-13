@@ -35,43 +35,111 @@ const features = [
 
 export default function Features() {
   return (
-    <section id="features" className="relative z-1 py-32">
-      <div className="max-w-[1200px] mx-auto px-8">
-        <RevealOnScroll className="text-center mb-20">
-          <span className="font-[var(--font-display)] text-[0.7rem] font-bold tracking-[0.15em] uppercase text-accent-green mb-4 block">
+    <section id="features" className="relative z-10" style={{ padding: "6rem 0" }}>
+      <div style={{ maxWidth: 1080, margin: "0 auto", padding: "0 20px" }}>
+        <RevealOnScroll className="text-center" style={{ marginBottom: "4rem" }}>
+          <span
+            style={{
+              display: "block",
+              fontSize: "0.8rem",
+              fontWeight: 500,
+              letterSpacing: "0.12em",
+              textTransform: "uppercase",
+              color: "rgba(255,255,255,0.4)",
+              marginBottom: "0.75rem",
+            }}
+          >
             Features
           </span>
-          <h2 className="font-[var(--font-display)] text-[clamp(2rem,4vw,3.25rem)] font-extrabold leading-tight tracking-tight mb-5">
+          <h2
+            style={{
+              fontFamily: "var(--font-display)",
+              fontSize: "clamp(2rem, 4vw, 2.75rem)",
+              fontWeight: 500,
+              lineHeight: 1.15,
+              letterSpacing: "-0.015em",
+              marginBottom: "1rem",
+            }}
+          >
             Everything you need.
             <br />
             Nothing you don&apos;t.
           </h2>
-          <p className="text-base text-text-secondary max-w-[500px] mx-auto leading-relaxed font-light">
+          <p
+            style={{
+              fontSize: "1.1rem",
+              color: "rgba(255,255,255,0.5)",
+              maxWidth: 460,
+              margin: "0 auto",
+              lineHeight: 1.75,
+              fontWeight: 300,
+            }}
+          >
             A focused toolkit for building better days, one habit and one task at
             a time.
           </p>
         </RevealOnScroll>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+        <div
+          style={{
+            display: "grid",
+            gridTemplateColumns: "repeat(3, 1fr)",
+            gap: "1rem",
+          }}
+        >
           {features.map((f, i) => (
             <RevealOnScroll key={f.title} delay={(i % 3) * 0.1 + 0.1}>
-              <div className="group relative overflow-hidden rounded-[20px] p-9 border border-border-subtle bg-card hover:bg-card-hover hover:border-border-light hover:-translate-y-0.5 transition-all duration-300">
-                {/* Hover glow */}
-                <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(52,211,153,0.15),transparent_60%)] opacity-0 group-hover:opacity-100 transition-opacity duration-400" />
-
+              <div
+                className="feature-card"
+                style={{
+                  position: "relative",
+                  overflow: "hidden",
+                  borderRadius: 24,
+                  padding: 20,
+                  height: "100%",
+                  border: "1px solid rgba(255,255,255,0.15)",
+                  background: "rgba(255,255,255,0.08)",
+                  backdropFilter: "blur(20px)",
+                  WebkitBackdropFilter: "blur(20px)",
+                  boxShadow: "0 0 5px rgba(255,255,255,0.1)",
+                  transition: "background 0.3s, border-color 0.3s",
+                }}
+              >
                 <div
-                  className="relative w-12 h-12 flex items-center justify-center rounded-[14px] mb-6 text-xl"
                   style={{
-                    background: "rgba(52, 211, 153, 0.08)",
-                    border: "1px solid rgba(52, 211, 153, 0.15)",
+                    width: 44,
+                    height: 44,
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    borderRadius: 14,
+                    marginBottom: 16,
+                    fontSize: "1.25rem",
+                    background: "rgba(48, 209, 88, 0.06)",
+                    border: "1px solid rgba(48, 209, 88, 0.1)",
                   }}
                 >
                   {f.icon}
                 </div>
-                <h3 className="relative font-[var(--font-display)] text-lg font-bold mb-3 tracking-tight">
+                <h3
+                  style={{
+                    fontFamily: "var(--font-display)",
+                    fontSize: "1.1rem",
+                    fontWeight: 500,
+                    letterSpacing: "-0.01em",
+                    marginBottom: "0.5rem",
+                  }}
+                >
                   {f.title}
                 </h3>
-                <p className="relative text-text-secondary text-sm leading-relaxed font-light">
+                <p
+                  style={{
+                    color: "rgba(255,255,255,0.5)",
+                    fontSize: "1rem",
+                    lineHeight: 1.7,
+                    fontWeight: 300,
+                  }}
+                >
                   {f.desc}
                 </p>
               </div>

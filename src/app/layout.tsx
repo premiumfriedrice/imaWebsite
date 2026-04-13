@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
-import { Syne, Outfit, Cormorant_Garamond } from "next/font/google";
+import { Plus_Jakarta_Sans, Outfit, Cormorant_Garamond } from "next/font/google";
 import "./globals.css";
 
-const syne = Syne({
+const jakarta = Plus_Jakarta_Sans({
   variable: "--font-display",
   subsets: ["latin"],
 });
@@ -33,7 +33,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${syne.variable} ${outfit.variable} ${cormorant.variable} antialiased`}
+      className={`${jakarta.variable} ${outfit.variable} ${cormorant.variable} antialiased`}
     >
       <body>{children}</body>
     </html>

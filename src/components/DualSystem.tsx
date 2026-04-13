@@ -1,58 +1,129 @@
 import RevealOnScroll from "./RevealOnScroll";
 
-const habitTags = ["Daily / Weekly / Monthly", "Streaks", "Completion Heatmap", "80% Target Rate"];
+const habitTags = ["Daily / Weekly / Monthly", "Streaks", "Completion Heatmap"];
 const taskTags = ["High / Medium / Low", "Subtasks", "Due Dates", "Auto-Prioritize"];
 
 export default function DualSystem() {
   return (
-    <section id="system" className="relative z-1 pb-32 pt-8">
-      <div className="max-w-[1200px] mx-auto px-8">
-        <RevealOnScroll className="text-center mb-16">
-          <span className="font-[var(--font-display)] text-[0.7rem] font-bold tracking-[0.15em] uppercase text-accent-green mb-4 block">
+    <section id="system" className="relative z-10" style={{ padding: "6rem 0" }}>
+      <div style={{ maxWidth: 1080, margin: "0 auto", padding: "0 20px" }}>
+        <RevealOnScroll className="text-center" style={{ marginBottom: "3.5rem" }}>
+          <span
+            style={{
+              display: "block",
+              fontSize: "0.8rem",
+              fontWeight: 500,
+              letterSpacing: "0.12em",
+              textTransform: "uppercase",
+              color: "rgba(255,255,255,0.4)",
+              marginBottom: "0.75rem",
+            }}
+          >
             The System
           </span>
-          <h2 className="font-[var(--font-display)] text-[clamp(2rem,4vw,3.25rem)] font-extrabold leading-tight tracking-tight mb-5">
+          <h2
+            style={{
+              fontFamily: "var(--font-display)",
+              fontSize: "clamp(2rem, 4vw, 2.75rem)",
+              fontWeight: 500,
+              lineHeight: 1.15,
+              letterSpacing: "-0.015em",
+              marginBottom: "1rem",
+            }}
+          >
             Two engines.
             <br />
             One daily answer.
           </h2>
-          <p className="text-base text-text-secondary max-w-[500px] mx-auto leading-relaxed font-light">
+          <p
+            style={{
+              fontSize: "1.1rem",
+              color: "rgba(255,255,255,0.5)",
+              maxWidth: 460,
+              margin: "0 auto",
+              lineHeight: 1.75,
+              fontWeight: 300,
+            }}
+          >
             ima asks &ldquo;What can I do today?&rdquo; and fills your day with
             exactly what matters.
           </p>
         </RevealOnScroll>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div
+          style={{
+            display: "grid",
+            gridTemplateColumns: "repeat(2, 1fr)",
+            gap: "1rem",
+          }}
+        >
           {/* Habits card */}
           <RevealOnScroll>
             <div
-              className="rounded-3xl p-12 border border-border-subtle"
               style={{
-                background:
-                  "linear-gradient(160deg, rgba(52, 211, 153, 0.06), rgba(10, 12, 20, 0.9))",
+                borderRadius: 24,
+                padding: 24,
+                border: "1px solid rgba(255,255,255,0.15)",
+                background: "rgba(255,255,255,0.08)",
+                backdropFilter: "blur(20px)",
+                WebkitBackdropFilter: "blur(20px)",
+                boxShadow: "0 0 5px rgba(255,255,255,0.1)",
+                height: "100%",
               }}
             >
-              <span className="font-[var(--font-display)] text-[0.65rem] font-bold tracking-[0.15em] uppercase text-accent-green block mb-4">
+              <span
+                style={{
+                  display: "block",
+                  fontSize: "0.75rem",
+                  fontWeight: 500,
+                  letterSpacing: "0.12em",
+                  textTransform: "uppercase",
+                  color: "rgba(48, 209, 88, 0.7)",
+                  marginBottom: "1.25rem",
+                }}
+              >
                 Habits
               </span>
-              <h3 className="font-[var(--font-display)] text-[1.75rem] font-extrabold tracking-tight mb-4">
+              <h3
+                style={{
+                  fontFamily: "var(--font-display)",
+                  fontSize: "1.5rem",
+                  fontWeight: 500,
+                  letterSpacing: "-0.01em",
+                  lineHeight: 1.3,
+                  marginBottom: "0.75rem",
+                }}
+              >
                 Build momentum
                 <br />
                 that compounds
               </h3>
-              <p className="text-text-secondary text-[0.95rem] leading-relaxed font-light max-w-[380px] mb-8">
+              <p
+                style={{
+                  color: "rgba(255,255,255,0.5)",
+                  fontSize: "1rem",
+                  lineHeight: 1.75,
+                  fontWeight: 300,
+                  maxWidth: 400,
+                  marginBottom: "1.75rem",
+                }}
+              >
                 Track daily, weekly, and monthly habits. Perpetual habits build
-                streaks. Challenges push you toward concrete goals. The atom
-                tracks your orbit.
+                streaks. Challenges push you toward concrete goals.
               </p>
-              <div className="flex flex-wrap gap-2">
+              <div className="flex flex-wrap" style={{ gap: "0.5rem" }}>
                 {habitTags.map((tag) => (
                   <span
                     key={tag}
-                    className="px-3.5 py-1.5 rounded-full text-xs font-medium tracking-wide text-accent-mint"
                     style={{
-                      background: "rgba(52, 211, 153, 0.1)",
-                      border: "1px solid rgba(52, 211, 153, 0.2)",
+                      padding: "5px 14px",
+                      borderRadius: 100,
+                      fontSize: "0.8rem",
+                      fontWeight: 300,
+                      letterSpacing: "0.02em",
+                      color: "rgba(48, 209, 88, 0.7)",
+                      background: "rgba(48, 209, 88, 0.06)",
+                      border: "1px solid rgba(48, 209, 88, 0.15)",
                     }}
                   >
                     {tag}
@@ -65,33 +136,70 @@ export default function DualSystem() {
           {/* Tasks card */}
           <RevealOnScroll delay={0.1}>
             <div
-              className="rounded-3xl p-12 border border-border-subtle"
               style={{
-                background:
-                  "linear-gradient(160deg, rgba(96, 165, 250, 0.06), rgba(10, 12, 20, 0.9))",
+                borderRadius: 24,
+                padding: 24,
+                border: "1px solid rgba(255,255,255,0.15)",
+                background: "rgba(255,255,255,0.08)",
+                backdropFilter: "blur(20px)",
+                WebkitBackdropFilter: "blur(20px)",
+                boxShadow: "0 0 5px rgba(255,255,255,0.1)",
+                height: "100%",
               }}
             >
-              <span className="font-[var(--font-display)] text-[0.65rem] font-bold tracking-[0.15em] uppercase text-accent-blue block mb-4">
+              <span
+                style={{
+                  display: "block",
+                  fontSize: "0.75rem",
+                  fontWeight: 500,
+                  letterSpacing: "0.12em",
+                  textTransform: "uppercase",
+                  color: "rgba(10, 132, 255, 0.7)",
+                  marginBottom: "1.25rem",
+                }}
+              >
                 Tasks
               </span>
-              <h3 className="font-[var(--font-display)] text-[1.75rem] font-extrabold tracking-tight mb-4">
+              <h3
+                style={{
+                  fontFamily: "var(--font-display)",
+                  fontSize: "1.5rem",
+                  fontWeight: 500,
+                  letterSpacing: "-0.01em",
+                  lineHeight: 1.3,
+                  marginBottom: "0.75rem",
+                }}
+              >
                 Crush what&apos;s
                 <br />
                 in front of you
               </h3>
-              <p className="text-text-secondary text-[0.95rem] leading-relaxed font-light max-w-[380px] mb-8">
+              <p
+                style={{
+                  color: "rgba(255,255,255,0.5)",
+                  fontSize: "1rem",
+                  lineHeight: 1.75,
+                  fontWeight: 300,
+                  maxWidth: 400,
+                  marginBottom: "1.75rem",
+                }}
+              >
                 Prioritize by urgency. Break big work into subtasks. Overdue
-                items surface automatically into your &ldquo;Must Do&rdquo; view
-                so nothing slips.
+                items surface automatically so nothing slips.
               </p>
-              <div className="flex flex-wrap gap-2">
+              <div className="flex flex-wrap" style={{ gap: "0.5rem" }}>
                 {taskTags.map((tag) => (
                   <span
                     key={tag}
-                    className="px-3.5 py-1.5 rounded-full text-xs font-medium tracking-wide text-accent-blue-light"
                     style={{
-                      background: "rgba(96, 165, 250, 0.1)",
-                      border: "1px solid rgba(96, 165, 250, 0.2)",
+                      padding: "5px 14px",
+                      borderRadius: 100,
+                      fontSize: "0.8rem",
+                      fontWeight: 300,
+                      letterSpacing: "0.02em",
+                      color: "rgba(10, 132, 255, 0.7)",
+                      background: "rgba(10, 132, 255, 0.06)",
+                      border: "1px solid rgba(10, 132, 255, 0.15)",
                     }}
                   >
                     {tag}

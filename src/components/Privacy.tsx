@@ -9,80 +9,96 @@ const points = [
 
 export default function Privacy() {
   return (
-    <section id="privacy" className="relative z-1 py-32">
-      <div className="max-w-[1200px] mx-auto px-8">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-20 items-center">
-          {/* Text */}
-          <RevealOnScroll>
-            <span className="font-[var(--font-display)] text-[0.7rem] font-bold tracking-[0.15em] uppercase text-accent-green mb-4 block">
-              Privacy First
-            </span>
-            <h2 className="font-[var(--font-display)] text-[clamp(2rem,4vw,3.25rem)] font-extrabold leading-tight tracking-tight mb-5">
-              Your data stays
-              <br />
-              with you. Period.
-            </h2>
-            <p className="text-base text-text-secondary max-w-[500px] leading-relaxed font-light mb-8">
-              ima was built with a simple principle: your personal growth data
-              belongs to no one but you.
-            </p>
+    <section id="privacy" className="relative z-10" style={{ padding: "6rem 0" }}>
+      <div style={{ maxWidth: 1080, margin: "0 auto", padding: "0 20px" }}>
+        <RevealOnScroll className="text-center">
+          <span
+            style={{
+              display: "block",
+              fontSize: "0.8rem",
+              fontWeight: 500,
+              letterSpacing: "0.12em",
+              textTransform: "uppercase",
+              color: "rgba(255,255,255,0.4)",
+              marginBottom: "0.75rem",
+            }}
+          >
+            Privacy First
+          </span>
+          <h2
+            style={{
+              fontFamily: "var(--font-display)",
+              fontSize: "clamp(2rem, 4vw, 2.75rem)",
+              fontWeight: 500,
+              lineHeight: 1.15,
+              letterSpacing: "-0.015em",
+              marginBottom: "1rem",
+            }}
+          >
+            Your data stays
+            <br />
+            with you. Period.
+          </h2>
+          <p
+            style={{
+              fontSize: "1.1rem",
+              color: "rgba(255,255,255,0.5)",
+              maxWidth: 480,
+              margin: "0 auto",
+              lineHeight: 1.75,
+              fontWeight: 300,
+              marginBottom: "2.5rem",
+            }}
+          >
+            ima was built with a simple principle: your personal growth data
+            belongs to no one but you.
+          </p>
+        </RevealOnScroll>
 
-            <ul className="flex flex-col gap-5">
-              {points.map((point) => (
-                <li
-                  key={point}
-                  className="flex items-start gap-4 text-text-secondary text-[0.95rem] font-light leading-relaxed"
-                >
-                  <span
-                    className="shrink-0 w-6 h-6 rounded-full flex items-center justify-center text-[0.7rem] text-accent-green mt-0.5"
-                    style={{
-                      background: "rgba(52, 211, 153, 0.1)",
-                      border: "1px solid rgba(52, 211, 153, 0.2)",
-                    }}
-                  >
-                    ✓
-                  </span>
-                  {point}
-                </li>
-              ))}
-            </ul>
-          </RevealOnScroll>
-
-          {/* Shield visual */}
-          <RevealOnScroll delay={0.2} className="flex justify-center md:order-last max-md:-order-1">
-            <div className="relative w-[220px] h-[260px]">
-              <div
-                className="w-full h-full flex items-center justify-center"
+        <RevealOnScroll>
+          <ul
+            style={{
+              listStyle: "none",
+              display: "flex",
+              flexDirection: "column",
+              gap: "1rem",
+              maxWidth: 520,
+              margin: "0 auto",
+            }}
+          >
+            {points.map((point) => (
+              <li
+                key={point}
                 style={{
-                  background:
-                    "linear-gradient(160deg, rgba(52, 211, 153, 0.08), rgba(52, 211, 153, 0.02))",
-                  border: "1px solid rgba(52, 211, 153, 0.15)",
-                  borderRadius: "50% 50% 50% 50% / 30% 30% 70% 70%",
+                  display: "flex",
+                  alignItems: "flex-start",
+                  gap: "0.75rem",
+                  color: "rgba(255,255,255,0.5)",
+                  fontSize: "1rem",
+                  fontWeight: 300,
+                  lineHeight: 1.6,
                 }}
               >
-                <span className="text-6xl opacity-80">🛡</span>
-              </div>
-              <div
-                className="absolute"
-                style={{
-                  inset: -20,
-                  border: "1px solid rgba(52, 211, 153, 0.08)",
-                  borderRadius: "50% 50% 50% 50% / 30% 30% 70% 70%",
-                  animation: "shield-pulse 3s ease-in-out infinite",
-                }}
-              />
-              <div
-                className="absolute"
-                style={{
-                  inset: -40,
-                  border: "1px solid rgba(52, 211, 153, 0.08)",
-                  borderRadius: "50% 50% 50% 50% / 30% 30% 70% 70%",
-                  animation: "shield-pulse 3s ease-in-out infinite 1s",
-                }}
-              />
-            </div>
-          </RevealOnScroll>
-        </div>
+                <span
+                  className="shrink-0 flex items-center justify-center"
+                  style={{
+                    width: 28,
+                    height: 28,
+                    borderRadius: "50%",
+                    fontSize: "0.85rem",
+                    color: "rgba(48, 209, 88, 0.8)",
+                    background: "rgba(48, 209, 88, 0.08)",
+                    border: "1px solid rgba(48, 209, 88, 0.15)",
+                    marginTop: 1,
+                  }}
+                >
+                  ✓
+                </span>
+                {point}
+              </li>
+            ))}
+          </ul>
+        </RevealOnScroll>
       </div>
     </section>
   );

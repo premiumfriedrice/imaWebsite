@@ -1,56 +1,54 @@
 @import "tailwindcss";
 
 @theme inline {
-  --font-display: var(--font-display);
-  --font-body: var(--font-body);
-  --font-accent: var(--font-accent);
-
-  --color-deep: #0a0c14;
-  --color-card: rgba(255, 255, 255, 0.04);
-  --color-card-hover: rgba(255, 255, 255, 0.07);
-  --color-border-subtle: rgba(255, 255, 255, 0.08);
-  --color-border-light: rgba(255, 255, 255, 0.12);
-  --color-text-primary: #f0f0f2;
-  --color-text-secondary: rgba(240, 240, 242, 0.55);
-  --color-text-tertiary: rgba(240, 240, 242, 0.3);
-  --color-accent-green: #34d399;
-  --color-accent-mint: #6ee7b7;
-  --color-accent-blue: #60a5fa;
-  --color-accent-blue-light: #93bbfd;
+  --color-deep: #141417;
+  --color-card: rgba(255, 255, 255, 0.08);
+  --color-card-hover: rgba(255, 255, 255, 0.12);
+  --color-border-subtle: rgba(255, 255, 255, 0.15);
+  --color-border-light: rgba(255, 255, 255, 0.2);
+  --color-text-primary: #ffffff;
+  --color-text-secondary: rgba(255, 255, 255, 0.5);
+  --color-text-tertiary: rgba(255, 255, 255, 0.25);
+  --color-accent-green: #30D158;
+  --color-accent-mint: #63E6E2;
+  --color-accent-blue: #0A84FF;
+  --color-accent-blue-light: #5AC8FA;
 }
 
-*, *::before, *::after {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    font-family: var(--font-body), -apple-system, BlinkMacSystemFont, sans-serif;
+    background: #141417;
+    color: #ffffff;
+    overflow-x: hidden;
+    line-height: 1.6;
+  }
+
+  /* Noise texture overlay */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    pointer-events: none;
+    opacity: 0.015;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+    background-repeat: repeat;
+    background-size: 256px 256px;
+  }
 }
 
-html {
-  scroll-behavior: smooth;
+/* Feature card hover */
+.feature-card:hover {
+  background: rgba(255, 255, 255, 0.12) !important;
+  border-color: rgba(255, 255, 255, 0.2) !important;
 }
 
-body {
-  font-family: var(--font-body), sans-serif;
-  background: var(--color-deep);
-  color: var(--color-text-primary);
-  overflow-x: hidden;
-  line-height: 1.6;
-}
-
-/* Noise texture overlay */
-body::before {
-  content: '';
-  position: fixed;
-  inset: 0;
-  z-index: 9999;
-  pointer-events: none;
-  opacity: 0.025;
-  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
-  background-repeat: repeat;
-  background-size: 256px 256px;
-}
-
-/* Ambient orb animations */
+/* Keyframes */
 @keyframes drift1 {
   0%, 100% { transform: translate(0, 0); }
   33% { transform: translate(-40px, 30px); }
@@ -68,32 +66,22 @@ body::before {
   50% { transform: translate(-50%, -50%) scale(1.15); }
 }
 
-/* Atom orbit spin */
 @keyframes spin-orbit {
   from { transform: translate(-50%, -50%) rotate(0deg); }
   to { transform: translate(-50%, -50%) rotate(360deg); }
 }
 
-/* Shield pulse */
 @keyframes shield-pulse {
   0%, 100% { opacity: 0.4; transform: scale(1); }
   50% { opacity: 0.1; transform: scale(1.02); }
 }
 
-/* Dot pulse */
 @keyframes pulse-dot {
   0%, 100% { opacity: 1; }
   50% { opacity: 0.4; }
 }
 
-/* Hero entrance animations */
 @keyframes fadeUp {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+  from { opacity: 0; transform: translateY(16px); }
+  to { opacity: 1; transform: translateY(0); }
 }

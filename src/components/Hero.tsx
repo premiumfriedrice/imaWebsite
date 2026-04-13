@@ -3,83 +3,95 @@ import Atom from "./Atom";
 
 export default function Hero() {
   return (
-    <section className="relative z-1 min-h-screen flex items-center justify-center pt-32 pb-24 px-8 text-center">
-      <div className="max-w-[800px]">
-        {/* Badge */}
+    <section
+      className="relative z-10 flex items-center justify-center text-center"
+      style={{ minHeight: "100vh", padding: "6rem 2rem 4rem" }}
+    >
+      <div
+        style={{
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "center",
+        }}
+      >
+        {/* Logo + Name */}
         <div
-          className="inline-flex items-center gap-2 pl-2 pr-4 py-1.5 rounded-full text-xs text-text-secondary tracking-wide mb-10"
+          className="flex items-center"
           style={{
-            background: "rgba(255,255,255,0.04)",
-            border: "1px solid rgba(255,255,255,0.08)",
+            gap: 10,
+            opacity: 0,
+            animation: "fadeUp 0.8s ease forwards 0.1s",
           }}
         >
+          <Atom size={72} />
           <span
-            className="w-2 h-2 rounded-full bg-accent-green"
+            className="bg-clip-text text-transparent"
             style={{
-              boxShadow: "0 0 8px #34d399",
-              animation: "pulse-dot 2s ease-in-out infinite",
+              fontFamily: "var(--font-display)",
+              fontSize: "3.5rem",
+              fontWeight: 600,
+              backgroundImage: "linear-gradient(135deg, #30D158, #63E6E2)",
             }}
-          />
-          Available on iOS
+          >
+            ima
+          </span>
         </div>
 
         {/* Question */}
-        <p
-          className="font-[var(--font-accent)] text-base md:text-lg italic text-accent-mint tracking-wide mb-5"
-          style={{ opacity: 0, animation: "fadeUp 0.8s ease forwards 0.2s" }}
+        <h1
+          style={{
+            fontFamily: "var(--font-accent)",
+            fontSize: "clamp(2rem, 5vw, 3.25rem)",
+            fontStyle: "italic",
+            fontWeight: 400,
+            color: "rgba(255,255,255,0.85)",
+            marginTop: "3rem",
+            opacity: 0,
+            animation: "fadeUp 0.8s ease forwards 0.3s",
+          }}
         >
           What can I do today?
-        </p>
-
-        {/* Headline */}
-        <h1
-          className="font-[var(--font-display)] text-[clamp(3rem,7vw,5.5rem)] font-extrabold leading-none tracking-tighter mb-7"
-          style={{ opacity: 0, animation: "fadeUp 0.8s ease forwards 0.4s" }}
-        >
-          Habits &amp; tasks.
-          <br />
-          <span className="bg-gradient-to-br from-accent-green to-accent-mint bg-clip-text text-transparent">
-            One clear answer.
-          </span>
         </h1>
+
+        {/* CTA */}
+        <div style={{ marginTop: "2rem", opacity: 0, animation: "fadeUp 0.8s ease forwards 0.5s" }}>
+          <a
+            href="#download"
+            className="inline-flex items-center rounded-full hover:-translate-y-px transition-all"
+            style={{
+              fontFamily: "var(--font-display)",
+              fontSize: "0.85rem",
+              fontWeight: 600,
+              letterSpacing: "0.1em",
+              textTransform: "uppercase",
+              padding: "14px 28px",
+              gap: "8px",
+              textDecoration: "none",
+              color: "#000",
+              backgroundImage: "linear-gradient(135deg, #30D158, #63E6E2)",
+              boxShadow: "0 0 30px rgba(48, 209, 88, 0.15)",
+            }}
+          >
+            <AppleIcon />
+            Download on the App Store
+          </a>
+        </div>
 
         {/* Description */}
         <p
-          className="text-base md:text-lg text-text-secondary max-w-[520px] mx-auto mb-12 leading-relaxed font-light"
-          style={{ opacity: 0, animation: "fadeUp 0.8s ease forwards 0.6s" }}
+          style={{
+            fontSize: "1.25rem",
+            color: "rgba(255,255,255,0.4)",
+            fontWeight: 300,
+            maxWidth: 480,
+            lineHeight: 1.7,
+            marginTop: "2rem",
+            opacity: 0,
+            animation: "fadeUp 0.8s ease forwards 0.7s",
+          }}
         >
-          ima unifies habit tracking and task management into one focused,
-          beautifully simple system. No accounts. No cloud. Just you and your
-          progress.
+          Track your habits and tasks in one app. No accounts, no cloud, no subscriptions — everything stays on your device.
         </p>
-
-        {/* Actions */}
-        <div
-          className="flex items-center justify-center gap-6"
-          style={{ opacity: 0, animation: "fadeUp 0.8s ease forwards 0.8s" }}
-        >
-          <a
-            href="#download"
-            className="inline-flex items-center gap-2 px-5 py-2.5 bg-gradient-to-br from-accent-green to-accent-mint text-deep font-[var(--font-display)] text-xs font-bold tracking-widest uppercase rounded-full hover:-translate-y-0.5 hover:shadow-[0_8px_30px_rgba(52,211,153,0.25)] transition-all duration-250"
-          >
-            <AppleIcon />
-            Download Free
-          </a>
-          <a
-            href="#features"
-            className="inline-flex items-center gap-2 px-5 py-2.5 text-text-secondary text-sm rounded-full border border-border-light hover:text-text-primary hover:border-white/25 transition-all duration-250"
-          >
-            Learn more &darr;
-          </a>
-        </div>
-
-        {/* Atom visual */}
-        <div
-          className="mt-20 flex justify-center"
-          style={{ opacity: 0, animation: "fadeUp 1s ease forwards 1s" }}
-        >
-          <Atom />
-        </div>
       </div>
     </section>
   );

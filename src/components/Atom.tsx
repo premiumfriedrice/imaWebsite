@@ -1,37 +1,63 @@
-export default function Atom() {
-  const orbits = [
-    { size: 120, duration: 8 },
-    { size: 180, duration: 12, reverse: true },
-    { size: 240, duration: 16 },
-  ];
+export default function Atom({ size = 200 }: { size?: number }) {
+  const nucleusSize = size * 0.35;
+  const electronSize = size * 0.055;
+  const orbitRadius = size * 0.32;
+  const electronCount = 7;
+
+  const electrons = Array.from({ length: electronCount }, (_, i) => {
+    const angle = (i * 360) / electronCount - 90;
+    const rad = (angle * Math.PI) / 180;
+    const x = size / 2 + orbitRadius * Math.cos(rad);
+    const y = size / 2 + orbitRadius * Math.sin(rad);
+    return { x, y };
+  });
 
   return (
-    <div className="relative w-[280px] h-[280px] md:w-[280px] md:h-[280px] max-md:w-[200px] max-md:h-[200px]">
-      {/* Nucleus */}
+    <div style={{ position: "relative", width: size, height: size }}>
+      {/* Nucleus glow */}
       <div
-        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-4 h-4 rounded-full bg-gradient-to-br from-accent-green to-accent-mint"
         style={{
-          boxShadow:
-            "0 0 40px rgba(52, 211, 153, 0.4), 0 0 80px rgba(52, 211, 153, 0.15)",
+          position: "absolute",
+          top: "50%",
+          left: "50%",
+          transform: "translate(-50%, -50%)",
+          width: nucleusSize * 1.8,
+          height: nucleusSize * 1.8,
+          borderRadius: "50%",
+          background: "radial-gradient(circle, rgba(48, 209, 88, 0.2), transparent 70%)",
         }}
       />
 
-      {/* Orbits */}
-      {orbits.map((orbit, i) => (
+      {/* Nucleus */}
+      <div
+        style={{
+          position: "absolute",
+          top: "50%",
+          left: "50%",
+          transform: "translate(-50%, -50%)",
+          width: nucleusSize,
+          height: nucleusSize,
+          borderRadius: "50%",
+          background: "linear-gradient(135deg, #30D158, #63E6E2)",
+          boxShadow: "0 0 40px rgba(48, 209, 88, 0.3), 0 0 80px rgba(48, 209, 88, 0.1)",
+        }}
+      />
+
+      {/* Electrons */}
+      {electrons.map((pos, i) => (
         <div
           key={i}
-          className="absolute top-1/2 left-1/2 rounded-full border border-border-subtle"
           style={{
-            width: orbit.size,
-            height: orbit.size,
-            animation: `spin-orbit ${orbit.duration}s linear infinite ${orbit.reverse ? "reverse" : ""}`,
+            position: "absolute",
+            left: pos.x - electronSize / 2,
+            top: pos.y - electronSize / 2,
+            width: electronSize,
+            height: electronSize,
+            borderRadius: "50%",
+            background: "linear-gradient(135deg, #30D158, #63E6E2)",
+            boxShadow: "0 0 8px rgba(48, 209, 88, 0.4)",
           }}
-        >
-          <span
-            className="absolute -top-1 left-1/2 -translate-x-1/2 w-2 h-2 rounded-full bg-accent-mint"
-            style={{ boxShadow: "0 0 12px rgba(110, 231, 183, 0.5)" }}
-          />
-        </div>
+        />
       ))}
     </div>
   );

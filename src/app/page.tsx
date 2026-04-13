@@ -13,12 +13,14 @@ export default function Home() {
     <>
       <Ambient />
       <Nav />
-      <Hero />
-      <Features />
-      <DualSystem />
-      <Stats />
-      <Privacy />
-      <CTA />
+      <main>
+        <Hero />
+        <Features />
+        <DualSystem />
+        <Stats />
+        <Privacy />
+        <CTA />
+      </main>
       <Footer />
     </>
   );
