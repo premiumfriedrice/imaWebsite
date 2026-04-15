@@ -56,7 +56,7 @@ export default function Hero() {
         {/* CTA */}
         <div style={{ marginTop: "2rem", opacity: 0, animation: "fadeUp 0.8s ease forwards 0.5s" }}>
           <a
-            href="#download"
+            href="https://apps.apple.com/us/app/ima-habit-and-task-tracker/id6762107334"
             className="inline-flex items-center rounded-full hover:-translate-y-px transition-all"
             style={{
               fontFamily: "var(--font-display)",

@@ -78,7 +78,7 @@ export default function Nav() {
         </ul>
 
         <a
-          href="#download"
+          href="https://apps.apple.com/us/app/ima-habit-and-task-tracker/id6762107334"
           className="inline-flex items-center rounded-full hover:-translate-y-px transition-all"
           style={{
             fontFamily: "var(--font-display)",
